@@ -3,6 +3,13 @@
 var fs = require('fs');
 var util = require('util');
 var list = require('./list.js');
+var emojione = require('./emojione.js');
+var outname = 'README.md';
+
+//list = {
+//    emojione: emojione
+//};
+//outname = 'EMOJIONE.md';
 
 var tableCols = 3;
 
@@ -51,4 +58,4 @@ Object.keys(list).forEach(function(key) {
     markdown += tableString(list[key]);
 });
 
-fs.writeFileSync('README.md', markdown);
+fs.writeFileSync(outname, markdown);
