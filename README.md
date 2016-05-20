@@ -198,7 +198,7 @@
 | :pineapple: `:pineapple:` | :sweet_potato: `:sweet_potato:` | :eggplant: `:eggplant:` |
 | :tomato: `:tomato:` | :corn: `:corn:` |  |
 | **places** |  |  |
-| :109 `:109` | :house: `:house:` | :house_with_garden: `:house_with_garden:` |
+| :109: `:109:` | :house: `:house:` | :house_with_garden: `:house_with_garden:` |
 | :school: `:school:` | :office: `:office:` | :post_office: `:post_office:` |
 | :hospital: `:hospital:` | :bank: `:bank:` | :convenience_store: `:convenience_store:` |
 | :love_hotel: `:love_hotel:` | :hotel: `:hotel:` | :wedding: `:wedding:` |

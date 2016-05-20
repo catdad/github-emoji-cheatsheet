@@ -581,7 +581,7 @@ var list = {
         ':corn:'
     ],
     places: [
-        ':109',
+        ':109:',
         ':house:',
         ':house_with_garden:',
         ':school:',
