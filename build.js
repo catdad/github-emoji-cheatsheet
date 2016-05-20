@@ -5,13 +5,15 @@ var util = require('util');
 var list = require('./list.js');
 var emojione = require('./emojione.js');
 var outname = 'README.md';
-
-//list = {
-//    emojione: emojione
-//};
-//outname = 'EMOJIONE.md';
-
 var tableCols = 3;
+
+if (process.argv.indexOf('--emojione') > -1) {
+    list = {
+        emojione: emojione
+    };
+    outname = 'EMOJIONE.md';
+    tableCols = 1;
+}
 
 function makeRow(arr) {
     while (arr.length < tableCols) {
