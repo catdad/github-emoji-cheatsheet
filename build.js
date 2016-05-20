@@ -4,20 +4,26 @@ var fs = require('fs');
 var util = require('util');
 var list = require('./list.js');
 
+var tableCols = 3;
+
+function makeRow(arr) {
+    while (arr.length < tableCols) {
+        arr.push('');
+    }
+    
+    return '| ' + arr.join(' | ') + ' |\n';
+}
+
 function tableString(arr, str) {
     str = str || '';
     
-    var four = arr.splice(0,4);
+    var columns = arr.splice(0, tableCols);
     
-    while(four.length < 4) {
-        four.push('');
-    }
-    
-    var tableFour = four.map(function(item) {
-        return item === '' ? item : util.format('%s `%s`', item, item);
+    var tableColumns = columns.map(function(item) {
+        return util.format('%s `%s`', item, item);
     });
     
-    str += '| ' + tableFour.join(' | ') + ' |\n';
+    str += makeRow(tableColumns);
     
     if (arr.length) {
         return tableString(arr, str);
@@ -26,13 +32,25 @@ function tableString(arr, str) {
     }
 }
 
+function makeHeader() {
+    var headers = [];
+    
+    while (headers.length < tableCols) {
+        headers.push('---');
+    }
+    
+    return makeRow([]) + makeRow(headers);
+}
+
 var markdown = '# GitHub Emoji Cheatsheet\n\n';
 
-markdown += '|     |     |     |     |\n';
-markdown += '| --- | --- | --- | --- |\n';
+markdown += makeHeader();
 
 Object.keys(list).forEach(function(key) {
-    markdown += '| **' + key + '** | | | |\n';
+    
+    var arr = ['**' + key + '**'];
+    
+    markdown += makeRow(arr);
     markdown += tableString(list[key]);
 });
 
