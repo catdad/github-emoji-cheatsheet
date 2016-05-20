@@ -42,14 +42,11 @@ function makeHeader() {
     return makeRow([]) + makeRow(headers);
 }
 
-var markdown = '# GitHub Emoji Cheatsheet\n\n';
-
+var markdown = fs.readFileSync('HEADER.md');
 markdown += makeHeader();
 
 Object.keys(list).forEach(function(key) {
-    
     var arr = ['**' + key + '**'];
-    
     markdown += makeRow(arr);
     markdown += tableString(list[key]);
 });
